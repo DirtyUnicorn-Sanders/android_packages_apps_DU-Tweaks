@@ -199,7 +199,11 @@
     <string name="recents_clear_all_location_top_center">Top center</string>
     <string name="recents_clear_all_location_bottom_right">Bottom right</string>
     <string name="recents_clear_all_location_bottom_left">Bottom left</string>
-    <string name="recents_clear_all_location_bottom_center">Bottom center</string>
+    <string name="recents_clear_all_location_bottom_center">Bottom center</string>   
+    
+    <!-- Recents feature, Membar -->
+    <string name="recents_show_membar_title">Memory bar</string>
+    <string name="recents_show_membar_summary">Show a bar with the device\'s available memory</string>
 
     <!-- Hide Lockscreen clock, date, & alarm -->
     <string name="lockscreen_items_other">Other</string>
