@@ -35,4 +35,10 @@
         android:summary="@string/system_default_animation_summary"
         android:defaultValue="false" />	
 
+    <com.dirtyunicorns.tweaks.preference.SystemSettingSwitchPreference
+        android:key="sensor_block"
+        android:title="@string/sensor_block_title"
+        android:summary="@string/sensor_block_summary"
+        android:defaultValue="true" />
+
 </PreferenceScreen>
