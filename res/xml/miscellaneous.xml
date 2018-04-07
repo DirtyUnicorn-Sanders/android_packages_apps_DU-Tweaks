@@ -29,4 +29,10 @@
         android:summary="@string/data_disabled_icon_summary"
         android:defaultValue="true"/>
 
+    <com.dirtyunicorns.tweaks.preferences.GlobalSettingSwitchPreference
+        android:key="system_default_animation"
+        android:title="@string/system_default_animation_title"
+        android:summary="@string/system_default_animation_summary"
+        android:defaultValue="false" />	
+
 </PreferenceScreen>
