@@ -145,6 +145,24 @@
             android:summary="@string/wallpaper_tint_summary"
             android:defaultValue="true" />
 
+        <com.dirtyunicorns.tweaks.preferences.SystemSettingSwitchPreference
+            android:key="hide_lockscreen_status_bar"
+            android:title="@string/hide_lockscreen_status_bar_title"
+            android:summary="@string/hide_lockscreen_status_bar_summary"
+            android:defaultValue="false" />
+
+        <com.dirtyunicorns.tweaks.preferences.SystemSettingSwitchPreference
+            android:key="hide_lockscreen_indicator_display"
+            android:title="@string/hide_lockscreen_indicator_display_title"
+            android:summary="@string/hide_lockscreen_indicator_display_summary"
+            android:defaultValue="false" />
+
+        <com.dirtyunicorns.tweaks.preferences.SystemSettingSwitchPreference
+            android:key="hide_lockscreen_icon"
+            android:title="@string/hide_lockscreen_icon_title"
+            android:summary="@string/hide_lockscreen_icon_summary"
+            android:defaultValue="false" />
+
         <ListPreference
             android:key="torch_power_button_gesture"
             android:title="@string/torch_power_button_gesture_title"
