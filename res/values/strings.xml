@@ -893,4 +893,9 @@
     <string name="hide_lockscreen_icon_title">Hide lock screen icon</string>
     <string name="hide_lockscreen_icon_summary">Change the lock screen icon visibility</string>
 
+
+    <!-- Notification guts kill app button --> 
+    <string name="notification_guts_kill_app_button_title">Kill app button</string> 
+    <string name="notification_guts_kill_app_button_summary">Show a kill app button in notifaction shade</string> 
+
 </resources>
