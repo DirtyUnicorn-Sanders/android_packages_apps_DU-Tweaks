@@ -61,6 +61,40 @@
         android:summary="@string/lock_clock_font_summary"
         android:persistent="false" />
 
+    <ListPreference
+        android:key="lock_date_fonts"
+        android:title="@string/lock_date_font_title"
+        android:dialogTitle="@string/lock_date_font_dialog_title"
+        android:summary="@string/lock_date_font_summary"
+        android:entries="@array/lock_clock_fonts_entries"
+        android:entryValues="@array/lock_clock_fonts_values"
+        android:persistent="false" />
+
+    <PreferenceScreen
+        android:key="lockscreen_colors"
+        android:title="@string/lockscreen_colors"
+        android:fragment="com.dirtyunicorns.tweaks.fragments.LockColors" />
+
+    <com.dirtyunicorns.tweaks.preferences.CustomSeekBarPreference
+        android:key="lockclock_font_size"
+        android:title="@string/lockclock_font_size_title"
+        android:max="150"
+        settings:min="1"
+        settings:units="sp"
+        android:persistent="false"
+        android:defaultValue="72"
+        android:dependency="hide_lockscreen_clock" />
+
+    <com.dirtyunicorns.tweaks.preferences.CustomSeekBarPreference
+        android:key="lockdate_font_size"
+        android:title="@string/lockdate_font_size_title"
+        android:max="25"
+        settings:min="1"
+        settings:units="sp"
+        android:defaultValue="14"
+        android:persistent="false"
+        android:dependency="hide_lockscreen_date" />
+
     <Preference
         android:key="bottom_shortcuts_category"
         android:title="@string/systemui_tuner_lockscreen_bottom_shortcuts_title"
