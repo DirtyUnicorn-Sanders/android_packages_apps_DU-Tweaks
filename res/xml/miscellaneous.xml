@@ -23,4 +23,10 @@
         android:title="@string/screenshot_edit_app"
         android:summary="@string/screenshot_edit_app_summary" />
 
+    <com.dirtyunicorns.tweaks.preferences.SystemSettingSwitchPreference
+        android:key="data_disabled_icon"
+        android:title="@string/data_disabled_icon_title"
+        android:summary="@string/data_disabled_icon_summary"
+        android:defaultValue="true"/>
+
 </PreferenceScreen>
