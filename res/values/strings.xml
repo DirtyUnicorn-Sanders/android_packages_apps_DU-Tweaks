@@ -844,4 +844,11 @@
     <string name="lockscreen_alarm_color">Alarm</string>
     <string name="yes">YES</string>
 
+    <!-- LockScreen owner -->
+    <string name="lock_owner_font_title">Owner font options</string>
+    <string name="lock_owner_font_summary">Change the default font of the lockscreen owner info</string>
+    <string name="lock_owner_font_dialog_title">Select lock owner font</string>
+
+    <string name="lockowner_font_size_title">Owner font size</string>
+
 </resources>

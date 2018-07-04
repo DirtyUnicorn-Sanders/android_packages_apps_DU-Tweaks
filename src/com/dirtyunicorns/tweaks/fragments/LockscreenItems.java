@@ -19,19 +19,15 @@ package com.dirtyunicorns.tweaks.fragments;
 import android.app.Activity;
 import android.content.Context;
 import android.content.ContentResolver;
-<<<<<<< HEAD
-import android.os.Bundle;
-import android.os.UserHandle;
-import android.provider.Settings;
-
-=======
 import android.content.Intent;
 import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
->>>>>>> 83807f5... DT: [squash] Pimp my LockScreen [2/2]
+import android.os.UserHandle;
+import android.provider.Settings;
+
 import android.support.v7.preference.PreferenceCategory;
 import android.support.v7.preference.ListPreference;
 import android.support.v7.preference.Preference;
@@ -51,28 +47,27 @@ import com.android.internal.logging.nano.MetricsProto;
 public class LockscreenItems extends SettingsPreferenceFragment implements Preference.OnPreferenceChangeListener {
 
     private static final String TORCH_POWER_BUTTON_GESTURE = "torch_power_button_gesture";
-<<<<<<< HEAD
-    private static final String KEY_LOCKSCREEN_CLOCK_SELECTION = "lockscreen_clock_selection";
-    private static final String KEY_LOCKSCREEN_DATE_SELECTION = "lockscreen_date_selection";
-
-    private ListPreference mTorchPowerButton;
-    private ListPreference mLockscreenClockSelection;
-    private ListPreference mLockscreenDateSelection;
-=======
     private static final String PREF_LOCKSCREEN_BATTERY_INFO = "lockscreen_battery_info";
     private static final String LOCK_CLOCK_FONTS = "lock_clock_fonts";
     private static final String LOCK_DATE_FONTS = "lock_date_fonts";
     private static final String CLOCK_FONT_SIZE  = "lockclock_font_size";
     private static final String DATE_FONT_SIZE  = "lockdate_font_size";
+    private static final String LOCK_OWNER_FONTS = "lock_owner_fonts";
+    private static final String OWNER_FONT_SIZE  = "lockowner_font_size";
+    private static final String KEY_LOCKSCREEN_CLOCK_SELECTION = "lockscreen_clock_selection";
+    private static final String KEY_LOCKSCREEN_DATE_SELECTION = "lockscreen_date_selection";
 
     private ListPreference mTorchPowerButton;
     private SwitchPreference mLockscreenBatteryInfo;
     private CustomSeekBarPreference mClockFontSize;
     private CustomSeekBarPreference mDateFontSize;
+    private CustomSeekBarPreference mOwnerFontSize;
+    private ListPreference mLockscreenClockSelection;
+    private ListPreference mLockscreenDateSelection;
 
     ListPreference mLockClockFonts;
     ListPreference mLockDateFonts;
->>>>>>> 83807f5... DT: [squash] Pimp my LockScreen [2/2]
+    ListPreference mLockOwnerFonts;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -83,10 +78,10 @@ public class LockscreenItems extends SettingsPreferenceFragment implements Prefe
         final PreferenceScreen prefScreen = getPreferenceScreen();
         Resources resources = getResources();
 
-        // Lockscren Clock Fonts
+        // Lockscren Clock Fonts & Fonts Size
         mLockClockFonts = (ListPreference) findPreference(LOCK_CLOCK_FONTS);
         mLockClockFonts.setValue(String.valueOf(Settings.System.getInt(
-                getContentResolver(), Settings.System.LOCK_CLOCK_FONTS, 0)));
+                getContentResolver(), Settings.System.LOCK_CLOCK_FONTS, 12)));
         mLockClockFonts.setSummary(mLockClockFonts.getEntry());
         mLockClockFonts.setOnPreferenceChangeListener(this);
 
@@ -95,10 +90,10 @@ public class LockscreenItems extends SettingsPreferenceFragment implements Prefe
                 Settings.System.LOCKCLOCK_FONT_SIZE, 72));
         mClockFontSize.setOnPreferenceChangeListener(this);
 
-        // Lockscren Date Fonts
+        // Lockscren Date Fonts & Fonts Size
         mLockDateFonts = (ListPreference) findPreference(LOCK_DATE_FONTS);
         mLockDateFonts.setValue(String.valueOf(Settings.System.getInt(
-                getContentResolver(), Settings.System.LOCK_DATE_FONTS, 0)));
+                getContentResolver(), Settings.System.LOCK_DATE_FONTS, 13)));
         mLockDateFonts.setSummary(mLockDateFonts.getEntry());
         mLockDateFonts.setOnPreferenceChangeListener(this);
 
@@ -106,6 +101,18 @@ public class LockscreenItems extends SettingsPreferenceFragment implements Prefe
         mDateFontSize.setValue(Settings.System.getInt(getContentResolver(),
                 Settings.System.LOCKDATE_FONT_SIZE,14));
         mDateFontSize.setOnPreferenceChangeListener(this);
+
+        // Lockscren Owner Fonts & Fonts Size
+        mLockOwnerFonts = (ListPreference) findPreference(LOCK_OWNER_FONTS);
+        mLockOwnerFonts.setValue(String.valueOf(Settings.System.getInt(
+                getContentResolver(), Settings.System.LOCK_OWNER_FONTS, 13)));
+        mLockOwnerFonts.setSummary(mLockOwnerFonts.getEntry());
+        mLockOwnerFonts.setOnPreferenceChangeListener(this);
+
+        mOwnerFontSize = (CustomSeekBarPreference) findPreference(OWNER_FONT_SIZE);
+        mOwnerFontSize.setValue(Settings.System.getInt(getContentResolver(),
+                Settings.System.LOCKOWNER_FONT_SIZE,14));
+        mOwnerFontSize.setOnPreferenceChangeListener(this);
 
         mFooterPreferenceMixin.createFooterPreference().setTitle(R.string.lockscreen_torch_warning_text);
 
@@ -122,29 +129,26 @@ public class LockscreenItems extends SettingsPreferenceFragment implements Prefe
             mTorchPowerButton.setSummary(mTorchPowerButton.getEntry());
             mTorchPowerButton.setOnPreferenceChangeListener(this);
         }
-<<<<<<< HEAD
+
+        // We need to remove the lockscreen battery info if the device is not a Qualcomm device
+        mLockscreenBatteryInfo = (SwitchPreference) findPreference(PREF_LOCKSCREEN_BATTERY_INFO);
+        if (Build.BOARD.contains("dragon") || Build.BOARD.contains("shieldtablet")) {
+            prefScreen.removePreference(mLockscreenBatteryInfo);
+        }
 
         mLockscreenClockSelection = (ListPreference) findPreference(KEY_LOCKSCREEN_CLOCK_SELECTION);
         int clockSelection = Settings.System.getIntForUser(resolver,
-                Settings.System.LOCKSCREEN_CLOCK_SELECTION, 0, UserHandle.USER_CURRENT);
+                Settings.System.LOCKSCREEN_CLOCK_SELECTION, 3, UserHandle.USER_CURRENT);
         mLockscreenClockSelection.setValue(String.valueOf(clockSelection));
         mLockscreenClockSelection.setSummary(mLockscreenClockSelection.getEntry());
         mLockscreenClockSelection.setOnPreferenceChangeListener(this);
 
         mLockscreenDateSelection = (ListPreference) findPreference(KEY_LOCKSCREEN_DATE_SELECTION);
         int dateSelection = Settings.System.getIntForUser(resolver,
-                Settings.System.LOCKSCREEN_DATE_SELECTION, 0, UserHandle.USER_CURRENT);
+                Settings.System.LOCKSCREEN_DATE_SELECTION, 2, UserHandle.USER_CURRENT);
         mLockscreenDateSelection.setValue(String.valueOf(dateSelection));
         mLockscreenDateSelection.setSummary(mLockscreenDateSelection.getEntry());
         mLockscreenDateSelection.setOnPreferenceChangeListener(this);
-=======
-        
-        // We need to remove the lockscreen battery info if the device is not a Qualcomm device
-        mLockscreenBatteryInfo = (SwitchPreference) findPreference(PREF_LOCKSCREEN_BATTERY_INFO);
-        if (Build.BOARD.contains("dragon") || Build.BOARD.contains("shieldtablet")) {
-            prefScreen.removePreference(mLockscreenBatteryInfo);
-        }
->>>>>>> 83807f5... DT: [squash] Pimp my LockScreen [2/2]
     }
 
     @Override
@@ -163,6 +167,39 @@ public class LockscreenItems extends SettingsPreferenceFragment implements Prefe
                         1);
             }
             return true;
+        } else if (preference == mLockClockFonts) {
+            Settings.System.putInt(getContentResolver(), Settings.System.LOCK_CLOCK_FONTS,
+                    Integer.valueOf((String) newValue));
+            mLockClockFonts.setValue(String.valueOf(newValue));
+            mLockClockFonts.setSummary(mLockClockFonts.getEntry());
+            return true;
+        } else if (preference == mLockDateFonts) {
+            Settings.System.putInt(getContentResolver(), Settings.System.LOCK_DATE_FONTS,
+                    Integer.valueOf((String) newValue));
+            mLockDateFonts.setValue(String.valueOf(newValue));
+            mLockDateFonts.setSummary(mLockDateFonts.getEntry());
+            return true;
+        } else if (preference == mLockOwnerFonts) {
+            Settings.System.putInt(getContentResolver(), Settings.System.LOCK_OWNER_FONTS,
+                    Integer.valueOf((String) newValue));
+            mLockOwnerFonts.setValue(String.valueOf(newValue));
+            mLockOwnerFonts.setSummary(mLockOwnerFonts.getEntry());
+            return true;
+        } else if (preference == mClockFontSize) {
+            int top = (Integer) newValue;
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.LOCKCLOCK_FONT_SIZE, top*1);
+            return true;
+        } else if (preference == mDateFontSize) {
+            int top = (Integer) newValue;
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.LOCKDATE_FONT_SIZE, top*1);
+            return true;
+        } else if (preference == mOwnerFontSize) {
+            int top = (Integer) newValue;
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.LOCKOWNER_FONT_SIZE, top*1);
+            return true;
         } else if (preference == mLockscreenClockSelection) {
             int clockSelection = Integer.valueOf((String) newValue);
             int index = mLockscreenClockSelection.findIndexOfValue((String) newValue);
@@ -176,22 +213,6 @@ public class LockscreenItems extends SettingsPreferenceFragment implements Prefe
             Settings.System.putIntForUser(resolver,
                     Settings.System.LOCKSCREEN_DATE_SELECTION, dateSelection, UserHandle.USER_CURRENT);
             mLockscreenDateSelection.setSummary(mLockscreenDateSelection.getEntries()[index]);
-            return true;
-        } else if (preference == mLockDateFonts) {
-            Settings.System.putInt(getContentResolver(), Settings.System.LOCK_DATE_FONTS,
-                    Integer.valueOf((String) newValue));
-            mLockDateFonts.setValue(String.valueOf(newValue));
-            mLockDateFonts.setSummary(mLockDateFonts.getEntry());
-            return true;
-        } else if (preference == mClockFontSize) {
-            int top = (Integer) newValue;
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.LOCKCLOCK_FONT_SIZE, top*1);
-            return true;
-        } else if (preference == mDateFontSize) {
-            int top = (Integer) newValue;
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.LOCKDATE_FONT_SIZE, top*1);
             return true;
         }
         return false;
