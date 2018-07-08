@@ -28,7 +28,7 @@
   <string name="ticker_warning_text">Das Ticker-Feature ist als Mulitasking-Tool gedacht und bringt ein wenig Spritzer aus alten Zeiten mit sich. Während Sie die Tickerfunktion verwenden, können Sie keine Heads-Up-Benachrichtigungen verwenden.</string>
   <string name="carrier_label_warning_text">Beachte, dass der benutzerdefinierte Netzbetreibername in der erweiterten Statusleiste, auch bekannt als Schnelleinstellungen, nicht verfügbar ist. Außerdem kann die Verwendung von Emojis als Name zu Sichtbarkeitsproblemen bei helleren Hintergründen führen.</string>
   <string name="lockscreen_torch_warning_text">Die Lockscreen-Taschenlampe darf nur verwendet werden, wenn der Bildschirm ausgeschaltet ist. Beachten Sie auch, dass ein längeres Einschalten der Taschenlampe eine schnellere Entladung des Akkus zur Folge hat.</string>
-  <string name="slim_recents_hints_footer">Um alle Apps zu löschen, drücken Sie mit zwei Fingern auf das Panel. Um zu verhindern, dass eine App gelöscht wird, drücken Sie lange auf das Symbol, um sie zu starten.\n\nFür weitere neue Funktionen wie Multifenster oder um eine App zu beenden, drücken Sie lange auf ein beliebiges App-Fenster im Panel.</string>
+  <string name="slim_recents_hints_footer">Mit einer Zoom-Out Geste im Panel können alle Apps bereinigt werden. Um eine App im Speicher zu behalten, lange gedrückt halten und mit einem Stern markieren.\n\nFür weitere neue Funktionen wie Multifenster oder um eine App zu beenden, drücken Sie lange auf ein beliebiges App-Fenster im Panel.</string>
   <string name="smart_pixels_warning_text">Smart Pixel ist eine Energiesparfunktion. Je nachdem, wie viele Pixel Sie abschalten, können Sie eine deutliche Verbesserung der Akkulaufzeit feststellen. Für ein gutes Benutzererlebnis empfehlen wir Ihnen, die Anzahl der deaktivierten Pixel auf 75 Prozent zu setzen.</string>
   <!-- Categories -->
   <!-- System -->
@@ -184,8 +184,19 @@
   <string name="lockscreen_items_other">Sonstiges</string>
   <string name="hide_lockscreen_clock_title">Uhr-Widget</string>
   <string name="hide_lockscreen_clock_summary">Sichtbarkeit des Uhr-Widgets ändern</string>
+  <string name="lockscreen_clock_selection_title">Uhr-Stil</string>
+  <string name="lockscreen_clock_selection_digital">Standard</string>
+  <string name="lockscreen_clock_selection_digital_bold">Digital (Fett)</string>
+  <string name="lockscreen_clock_selection_sammy">Sammy</string>
+  <string name="lockscreen_clock_selection_sammy_bold">Sammy (Fett)</string>
+  <string name="lockscreen_clock_selection_analog">Analog</string>
   <string name="hide_lockscreen_date_title">Datum-Widget</string>
   <string name="hide_lockscreen_date_summary">Sichtbarkeit des Datums unterhalb des Uhr-Widgets anpassen</string>
+  <string name="lockscreen_date_selection_title">Datums-Stil</string>
+  <string name="lockscreen_date_selection_default_aosp">Standard</string>
+  <string name="lockscreen_date_selection_default">Standard (größer)</string>
+  <string name="lockscreen_date_selection_str_box">Halbtransparente Box</string>
+  <string name="lockscreen_date_selection_str_round">Halbtransparente Box (Rund)</string>
   <string name="hide_lockscreen_alarm_title">Wecker</string>
   <string name="hide_lockscreen_alarm_summary">Sichtbarkeit des Weckers unterhalb des Uhr-Widgets anpassen</string>
   <!-- Fingerprint authentication vibration -->
@@ -287,7 +298,7 @@
   <string name="smartbar_interface">Smartbar</string>
   <string name="icon_pack_picker_dialog_title">Symbolpakete</string>
   <string name="image_exceeds_max_allowed_size">Bild darf 512×512 nicht überschreiten</string>
-  <string name="invalid_icon_from_uri">Bild vom Anbieter kann nicht geladen werden</string>
+  <string name="invalid_icon_from_uri">Anbieterbild kann nicht geladen werden</string>
   <string name="picker_activities">Aktivitäten</string>
   <string name="select_custom_app_title">Benutzerdefinierte Anwendung wählen</string>
   <string name="select_custom_activity_title">Benutzerdefinierte Aktivität auswählen</string>
@@ -356,7 +367,7 @@
   <string name="fling_longpress_title">Verzögerung bei langem Tippen</string>
   <string name="fling_longpress_summary">Erhöht oder verringert die Zeit bis eine Aktion beim langen Tippen ausgeführt wird</string>
   <string name="fling_keyboard_cursors_title">Dynamische Cursor-Aktionen der Tastatur</string>
-  <string name="fling_keyboard_cursors_move_summary">Bei aktiver Tastatur, links oder rechts gedrückt halten, um den Textcursor zu bewegen.\nLänger gedrückt halten, um den Cursor weiter zu bewegen.\nTippen Sie auf die Leiste, um zum Startbildschirm zu gelangen.</string>
+  <string name="fling_keyboard_cursors_move_summary">Links oder rechts gedrückt halten, um den Textcursor bei aktiver Tastatur zu bewegen.\nLänger gedrückt halten, um den Cursor weiter zu bewegen.\nTippen Sie auf die Leiste, um zum Startbildschirm zu gelangen.</string>
   <string name="fling_logo_opacity_title">Deckkraft des Fling-Logos</string>
   <string name="fling_factory_reset_title">Auf Standard zurücksetzen</string>
   <string name="fling_factory_reset_confirm">Sind Sie sicher, dass Sie Fling auf die Standardeinstellungen zurücksetzen möchten?</string>
@@ -497,10 +508,8 @@
   <!-- DT2S on lockscreen -->
   <string name="double_tap_sleep_lockscreen">DoubleTap2Sleep (Sperrbildschirm)</string>
   <!-- Suppress notification sound/vibration -->
-  <string name="notification_sound_vib_screen_on_title">Benachrichtigungston und -Vibration bei eingeschaltetem Display</string>
-  <string name="notification_sound_vib_screen_on_never">Nie</string>
-  <string name="notification_sound_vib_screen_on_always">Immer (Standard)</string>
-  <string name="notification_sound_vib_screen_on_nomedia">Falls keine Medien abgespielt werden</string>
+  <string name="notification_sound_vib_screen_on_title">Benachrichtigungston bei eingeschaltetem Bildschirm</string>
+  <string name="notification_sound_vib_screen_on_summary">Wiedergabe von Ton und Vibration für Benachrichtigungen bei eingeschaltetem Bildschirm</string>
   <!-- Less notification sounds -->
   <string name="less_notification_sounds_title">Intelligente Benachrichtigungstöne</string>
   <string name="less_notification_sounds_summary">Die Benachrichtigungs-Töne einer App nur einmal pro festgelegtem Zeitraum wiedergeben</string>
@@ -509,6 +518,9 @@
   <string name="less_notification_sounds_30s">Alle 30 Sekunden</string>
   <string name="less_notification_sounds_1m">Jede Minute</string>
   <string name="less_notification_sounds_2m">Alle 2 Minuten</string>
+  <!-- Notification count -->
+  <string name="status_bar_notif_count_title">Benachrichtigungszähler anzeigen</string>
+  <string name="status_bar_notif_count_summary">Anzahl der ungelesenen Benachrichtigungen anzeigen</string>
   <!-- Expanded desktop -->
   <string name="expanded_desktop_title">Erweiterter Startbildschirm</string>
   <string name="expanded_desktop_summary">Konfiguration der Statusleiste und der Navigationstasten-Ansicht pro Anwendung</string>
@@ -567,6 +579,7 @@
   <string name="battery_style_land">Querformat</string>
   <string name="battery_style_circle">Kreis</string>
   <string name="battery_style_dotted_circle">Gepunkteter Kreis</string>
+  <string name="battery_style_square">Quadrat</string>
   <string name="battery_style_text">Text</string>
   <string name="battery_style_hidden">Ausgeblendet</string>
   <!-- Battery percent -->
@@ -644,13 +657,20 @@
   <string name="smart_pixels_enable_title">Smart Pixels einschalten</string>
   <string name="smart_pixels_enable_summary">Pixel zur Reduzierung des Stromverbrauchs abschalten</string>
   <string name="smart_pixels_on_power_save_title">Bei Energiesparmodus automatisch einschalten</string>
-  <string name="smart_pixels_on_power_save_summary">Smart Pixels einschalten wenn Energiesparmodus eingeschaltet ist</string>
+  <string name="smart_pixels_on_power_save_summary">Smart Pixels einschalten, wenn Energiesparmodus eingeschaltet ist</string>
   <string name="smart_pixels_percent">Prozentsatz der abzuschaltenden Pixel</string>
   <string name="smart_pixels_shift_title">Einbrenn-Schutz</string>
   <string name="smart_pixels_shift_summary">Verhindert das Einbrennen auf OLED-Displays durch Verlagern von Pixeln</string>
+  <!-- Chooser activity blacklist -->
   <string name="chooser_activity_blacklist_title">Liste von der Auswahl gesperrter Apps</string>
   <string name="chooser_activity_blacklist_summary">Apps, die nicht bei Auswahl der Teilen-Taste in der Liste angezeigt werden</string>
   <string name="chooser_activity_blacklist_cat_title">Schwarze Liste</string>
   <string name="chooser_activity_blacklist_pref_title">App hinzufügen</string>
   <string name="chooser_activity_blacklist_pref_summary">Hier zum Hinzufügen tippen, zum Entfernen auf eine vorhandene App tippen</string>
+  <!-- Wallpaper tint -->
+  <string name="wallpaper_tint_power_menu">Tönung des Power-Menü-Hintergrundes</string>
+  <string name="wallpaper_tint_recents">Tönung des Anwendungsverlaufs-Hintergrundes</string>
+  <string name="wallpaper_tint_keyguard">Tönung des Sperrbildschirms</string>
+  <string name="wallpaper_tint_notification_shade">Tönung von Benachrichtigungen</string>
+  <string name="wallpaper_tint_summary">Eine Tönung basierend auf dem Hintergrundbild zuweisen</string>
 </resources>
