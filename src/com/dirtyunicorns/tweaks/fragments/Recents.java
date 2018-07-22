@@ -104,14 +104,6 @@ public class Recents extends SettingsPreferenceFragment implements
         mRecentsClearAllLocation.setSummary(mRecentsClearAllLocation.getEntry());
         mRecentsClearAllLocation.setOnPreferenceChangeListener(this);
 
-        // recents type
-        mRecentsType = (ListPreference) findPreference(RECENTS_TYPE);
-        int style = Settings.System.getIntForUser(resolver,
-                Settings.System.RECENTS_LAYOUT_STYLE, 0, UserHandle.USER_CURRENT);
-        mRecentsType.setValue(String.valueOf(style));
-        mRecentsType.setSummary(mRecentsType.getEntry());
-        mRecentsType.setOnPreferenceChangeListener(this);
-
         // Immersive Recents
         mImmersiveRecents = (ListPreference) findPreference(IMMERSIVE_RECENTS);
         mImmersiveRecents.setValue(String.valueOf(Settings.System.getInt(
@@ -136,14 +128,6 @@ public class Recents extends SettingsPreferenceFragment implements
             Settings.System.putIntForUser(resolver,
                     Settings.System.RECENTS_CLEAR_ALL_LOCATION, location, UserHandle.USER_CURRENT);
             mRecentsClearAllLocation.setSummary(mRecentsClearAllLocation.getEntries()[index]);
-            return true;
-        } else if (preference == mRecentsType) {
-            int style = Integer.valueOf((String) newValue);
-            int index = mRecentsType.findIndexOfValue((String) newValue);
-            Settings.System.putIntForUser(getActivity().getContentResolver(),
-                    Settings.System.RECENTS_LAYOUT_STYLE, style, UserHandle.USER_CURRENT);
-            mRecentsType.setSummary(mRecentsType.getEntries()[index]);
-            Utils.restartSystemUi(getContext());
             return true;
         } else if (preference == mImmersiveRecents) {
             Settings.System.putInt(getContentResolver(), Settings.System.IMMERSIVE_RECENTS,
