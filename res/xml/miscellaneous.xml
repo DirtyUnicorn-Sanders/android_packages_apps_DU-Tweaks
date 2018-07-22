@@ -41,4 +41,12 @@
         android:summary="@string/sensor_block_summary"
         android:defaultValue="true" />
 
+    <!-- Pocket Mode -->
+    <com.dirtyunicorns.tweaks.preferences.SystemSettingSwitchPreference
+        android:key="pocket_judge"
+        android:icon="@drawable/ic_pocket_judge"
+        android:title="@string/pocket_judge_title"
+        android:summary="@string/pocket_judge_summary"
+        android:defaultValue="false" />
+
 </PreferenceScreen>
