@@ -98,7 +98,7 @@
   <string name="systemui_theme_style_auto">自動（壁紙に基づく）</string>
   <string name="systemui_theme_style_light">ライト</string>
   <string name="systemui_theme_style_dark">ダーク</string>
-  <string name="applying_theme_toast">テーマを適用中です。しばらくお待ちください。</string>
+  <string name="applying_theme_toast">テーマを適用中です。しばらくお待ちください...</string>
   <string name="theme_applied_toast">テーマが適用されました</string>
   <string name="disable_themes_installed_title">システムテーマはSubstratumとの競合のため使用できません。代わりにこれらのシステムテーマを使用したい場合はSubstratumをアンインストールしてください。</string>
   <string name="disable_accents_installed_title">アクセントピッカーはSubstratumとの競合のため利用できません。 アクセントピッカーを使用する場合はSubstratumをアンインストールしてください。</string>
@@ -535,7 +535,6 @@
   <string name="expanded_user_configurable">ユーザー設定</string>
   <string name="expanded_desktop_style">拡張デスクトップのスタイル</string>
   <string name="expanded_desktop_style_description">既定の拡張デスクトップスタイルを選択する</string>
-  <string name="expanded_desktop_options">拡張デスクトップのオプション</string>
   <!-- Status bar clock options -->
   <string name="status_bar_title">ステータスバー</string>
   <string name="status_bar_style_title">スタイル</string>

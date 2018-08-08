@@ -535,7 +535,6 @@
   <string name="expanded_user_configurable">Configurable por el usuario</string>
   <string name="expanded_desktop_style">Estilo de escritorio extendido</string>
   <string name="expanded_desktop_style_description">Escoge un estilo de escritorio extendido predeterminado</string>
-  <string name="expanded_desktop_options">Opciones del escritorio expandido</string>
   <!-- Status bar clock options -->
   <string name="status_bar_title">Barra de estado</string>
   <string name="status_bar_style_title">Estilo</string>
@@ -588,7 +587,7 @@
   <string name="battery_percent_hidden">Oculto</string>
   <string name="battery_percent_outside">Afuera</string>
   <string name="battery_percent_inside">Dentro</string>
-  <string name="battery_percent_inside_outside">Inside, outside when charging</string>
+  <string name="battery_percent_inside_outside">Dentro, fuera durante la carga</string>
   <!-- Battery icon size -->
   <string name="large_battery_icon_title">Mostrar icono grande</string>
   <string name="large_battery_icon_summary">Ampliar el icono de batería en la barra de estado</string>

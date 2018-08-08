@@ -535,7 +535,6 @@
   <string name="expanded_user_configurable">用户配置</string>
   <string name="expanded_desktop_style">扩展桌面样式</string>
   <string name="expanded_desktop_style_description">选择默认的扩展桌面样式</string>
-  <string name="expanded_desktop_options">扩展桌面设置</string>
   <!-- Status bar clock options -->
   <string name="status_bar_title">状态栏</string>
   <string name="status_bar_style_title">样式</string>
@@ -588,7 +587,7 @@
   <string name="battery_percent_hidden">隐藏</string>
   <string name="battery_percent_outside">外部</string>
   <string name="battery_percent_inside">内部</string>
-  <string name="battery_percent_inside_outside">内, 外充电时</string>
+  <string name="battery_percent_inside_outside">电量百分比在电池图标内，充电时在外侧</string>
   <!-- Battery icon size -->
   <string name="large_battery_icon_title">显示大图标</string>
   <string name="large_battery_icon_summary">增大状态栏电池图标</string>
